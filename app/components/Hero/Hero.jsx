@@ -1,8 +1,9 @@
 "use client";
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { SplitText } from "gsap/all";
+import { gsap, ScrollTrigger, SplitText } from "gsap/all";
+
 const Hero = () => {
+	gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
 	useGSAP(() => {
 		const heroSplit = new SplitText(".title", {
 			type: "chars, words",
@@ -32,7 +33,7 @@ const Hero = () => {
 
 		gsap
 			.timeline({
-				scrollTrigger: {
+				ScrollTrigger: {
 					trigger: "#hero",
 					start: "top top",
 					end: "bottom top",

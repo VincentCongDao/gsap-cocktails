@@ -1,28 +1,29 @@
 "use client";
 import { navLinks } from "@/app/constants";
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import { gsap, ScrollTrigger } from "gsap/all";
 const Navbar = () => {
+	gsap.registerPlugin(useGSAP, ScrollTrigger);
 	useGSAP(() => {
 		const navTween = gsap.timeline({
-			scrollTrigger: {
+			ScrollTrigger: {
 				trigger: "nav",
 				start: "bottom top",
 			},
 		});
 		navTween.fromTo(
-			"nav",
+			".navbar",
 			{ backgroundColor: "transparent" },
 			{
 				backgroundColor: "#00000050",
-				backgroundFilter: "blur(10px)",
+				backdropFilter: "blur(5px)",
 				duration: 1,
 				ease: "power1.inOut",
 			}
 		);
 	});
 	return (
-		<nav>
+		<nav className="navbar">
 			<div>
 				<a href="#home" className="flex item-center gap-2">
 					<p>Velvet Pour</p>
