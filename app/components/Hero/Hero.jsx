@@ -56,7 +56,7 @@ const Hero = () => {
 			videoRef.current.onloadedmetadata = () => {
 				const tl = gsap.timeline({
 					scrollTrigger: {
-						trigger: videoRef.current,
+						trigger: "video",
 						start: startValue,
 						end: endValue,
 						scrub: true,
